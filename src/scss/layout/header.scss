@@ -1,0 +1,70 @@
+.header{
+  position: fixed;
+  width: 100vw;
+  z-index: $z-index-header;
+  transition: all .2s ease;
+  .logo{
+    display: inline-block;
+    cursor: pointer;
+    span{
+      @include size(213px, 37px);
+      max-width: 100%;
+      display: inline-block;
+      background: url("../images/svg/logowhite.svg") no-repeat 50%;
+    }
+  }
+}
+.header.fixed{
+  transition: all .2s ease;
+}
+.header__container{
+  margin: 0 auto;
+  @extend %flex-container;
+}
+
+@include media('>widescreen') {
+  .header{
+    padding: 28px 10px 10px;
+    &.fixed{
+      background: #fff;
+      padding-top: 10px;
+      .logo span {
+        background: url("../images/svg/logocolor.svg") no-repeat 50%;
+      }
+    }
+  }
+}
+@include media('<=widescreen', '>desktop') {
+  .fixed, .opened-nav {
+    .header__logo{
+      background: #043355;
+    }
+  }
+}
+@include media('<=widescreen') {
+  .header__container{
+    align-items: stretch;
+  }
+  .header__logo{
+    z-index: $z-index-header;
+    width: 62.5%;
+    .logo{
+      padding: 20px 10px;
+      position: relative;
+    }
+  }
+}
+@include media('<=widescreen', 'portrait', '>phone') {
+  .header__logo .logo{
+    padding: 42px 10px 34px;
+  }
+}
+@include media('<=desktop') {
+  .header__logo{
+    background: #043355;
+    .logo{
+      width: 100%;
+      text-align: center;
+    }
+  }
+}

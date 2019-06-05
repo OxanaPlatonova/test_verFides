@@ -1,0 +1,19 @@
+.welcome-section{
+  border-bottom: 1px solid map-get($base, 'base-border');
+  [class*=__caption]{
+    max-width: 660px;
+  }
+}
+@include media('>desktop') {
+  .welcome-section{
+    margin-bottom: 21px;
+  }
+  .welcome__description-mb{
+    display: none;
+  }
+}
+@include media('<=desktop') {
+  .welcome__description-lp{
+    display: none;
+  }
+}

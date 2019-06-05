@@ -1,0 +1,35 @@
+.tax-section {
+  position: relative;
+  .container{
+    position: relative;
+    z-index: 2;
+  }
+  h2{
+    margin-bottom: 27px;
+  }
+  img{
+    position: absolute;
+    @extend %element-center;
+    z-index: 1;
+    opacity: 0.07;
+  }
+}
+@include media('>tablet') {
+  .tax-section {
+    padding: 73px 0 80px;
+  }
+}
+@include media('<=desktop') {
+  .tax-section img{
+    height: 100%;
+    object-fit: cover;
+  }
+}
+@include media('<=tablet') {
+  .tax-section {
+    padding: 67px 0 80px;
+    .tax__caption{
+      margin-bottom: 35px;
+    }
+  }
+}

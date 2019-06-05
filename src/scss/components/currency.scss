@@ -1,0 +1,47 @@
+.currency{
+  padding-top: 12px;
+}
+.currency__list-choice{
+  @extend %listreset;
+  text-align: center;
+  font-weight: bold;
+  li{
+    display: inline-block;
+    cursor: pointer;
+    color: map-get($base, 'base-text-light-color');
+    margin-left: 15px;
+    &.open{
+      color: #769eca;
+    }
+  }
+}
+.currency__list{
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  white-space: nowrap;
+  background: map-deep-get($base, 'base-background-dark-color');
+  margin-top: 5px;
+}
+.currency__relation{
+  padding: 9px 0 10px 17px;
+  border-right: 1px solid rgba(255, 255, 255, 0.5);
+}
+.currency__strip{
+  li:first-child{
+    margin-left: 32px;
+  }
+}
+.currency__name{
+  margin-right: 5px;
+  color: #769eca;
+}
+.currency__value{
+  margin-right: 32px;
+  color: #fff;
+}
+@include media('<=desktop') {
+  .currency{
+    display: none;
+  }
+}

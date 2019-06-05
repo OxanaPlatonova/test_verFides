@@ -1,0 +1,19 @@
+@include media('>desktop') {
+  [class*=__column-two] {
+    column-count: 2;
+    column-gap: 25px;
+    p{
+      display: grid;
+    }
+  }
+  [class*=__column-three]{
+    display: flex;
+    justify-content: space-between;
+    p{
+      flex: 1;
+    }
+    P:nth-child(2){
+      margin: 0 31px;
+    }
+  }
+}

@@ -1,0 +1,155 @@
+.nav-box{
+  margin-right: 25px;
+  ul{
+    @extend %listreset;
+  }
+}
+.menu__item{
+  @include media('>widescreen') {
+    display: inline-block;
+  }
+  a{
+    display: block;
+    position: relative;
+    font-size: 18px;
+    @include media('>widescreen') {
+      padding: 10px 20px 12px;
+      color: #fff;
+      .fixed &{
+        color: #787878;
+      }
+      &:before{
+        content: '';
+        position: absolute;
+        height: 1px;
+        bottom: 0;
+        left: 21px;
+        right: 21px;
+        background-color: #fff;
+        transition: transform .4s cubic-bezier(.8, 0, .2, 1);
+        transform: scale3d(0, 1, 1);
+        transform-origin: 50%;
+      }
+      .fixed &:before{
+        background-color: #787878;
+      }
+    }
+    @include media('<=widescreen') {
+      color: #444;
+      text-transform: uppercase;
+      padding: 20px;
+      border-bottom: 1px solid map-get($base, 'base-border');
+    }
+  }
+
+  &.active a:before,
+  a:hover:before{
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@include media('>widescreen') {
+  .nav-opener{
+    display: none;
+  }
+}
+@include media('<=widescreen', '>desktop') {
+  .fixed, .opened-nav{
+    .nav-opener{
+      background: #fff;
+    }
+    .nav-opener__button{
+      color: #444;
+    }
+  }
+}
+@include media('<=widescreen') {
+  .opened-nav .nav-opener{
+    border-bottom: 1px solid map-get($base, 'base-border');
+  }
+  .nav-box{
+    position: fixed;
+    z-index: 99;
+    @include size(100vw, 100vh);
+    max-height: 0;
+    overflow: hidden;
+    transition: all .35s linear;
+    background: 0 0;
+    margin: 0;
+    bottom: 100%;
+    .opened-nav &{
+      max-height: 2000px;
+      bottom: 0;
+    }
+    nav{
+      overflow: auto;
+      background: #fff;
+      padding-top: 126px;
+      height: 100%;
+    }
+    .active a{
+      color: #1a3255;
+      font-weight: 700;
+    }
+  }
+  .nav-opener{
+    cursor: pointer;
+    position: relative;
+    z-index: $z-index-header;
+    width: 37.5%;
+    padding: 28px 10px 20px;
+    margin-top: 0;
+  }
+  .nav-opener__button {
+    position: relative;
+    margin: 0 auto;
+    @include size(50px, 32px);
+    background: transparent;
+    border-top: 4px solid;
+    border-bottom: 4px solid;
+    color: #fff;
+    transition: all .25s ease-in-out;
+    overflow: hidden;
+    pointer-events: none;
+    &:before,
+    &:after {
+      content: '';
+      display: block;
+      @include size(100%, 4px);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition: transform .25s ease-in-out;
+      background: currentColor;
+    }
+    .active > &{
+      border-color: transparent;
+      color: #444;
+      &:before {
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+
+      &:after {
+        transform: translate(-50%, -50%) rotate(-45deg);
+      }
+    }
+  }
+}
+@include media('<=widescreen', 'portrait', '>phone') {
+  .nav-opener{
+    padding: 48px 10px 40px;
+  }
+}
+@include media('<=desktop') {
+  .nav-opener{
+    background: #fff;
+    margin: 0 auto;
+    .fixed &{
+      background: #fff;
+    }
+  }
+  .nav-opener__button {
+    color: #444;
+  }
+}

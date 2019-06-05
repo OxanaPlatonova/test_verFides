@@ -1,0 +1,132 @@
+.entry-section{
+  padding: 0;
+}
+.entry{
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  max-height: 100vh;
+  @include media('<=desktop') {
+    &__video-wrapper {
+      display: none;
+    }
+    [class*=entry__img]{
+      @include size(100vw, 100vh);
+      object-fit: cover;
+    }
+  }
+  @include media('>desktop') {
+    &__video{
+      object-fit: cover;
+      @include size(100vw, auto);
+    }
+    &__video-control{
+      bottom: 42px;
+      right: 41px;
+      color: #fff;
+      cursor: pointer;
+      font-size: 18px;
+      span{
+        pointer-events: none;
+        &:after{
+          content: '';
+          display: inline-block;
+          vertical-align: middle;
+        }
+      }
+      .video-pause:after{
+        @include size(18px, 20px);
+        border-left: 6px solid #fff;
+        border-right: 6px solid #fff;
+        margin-left: 10px;
+      }
+      .video-play:after{
+        border: 10px solid transparent;
+        border-left: 21px solid #fff;
+        margin: 0 -10px 0 10px;
+      }
+    }
+  }
+  & > *:not(&__video-wrapper):not(img),
+  &__video-control{
+    position: absolute;
+  }
+  h2{
+    @extend %element-center;
+    @include media('>desktop') {
+      max-width: 500px;
+    }
+    @include media('<=desktop') {
+      padding: 15px;
+      width: 100vw;
+    }
+    @include media('<=desktop', 'portrait', '>phone') {
+      margin-top: 40px;
+    }
+    @include media('landscape') {
+      font-size: 36px;
+    }
+    &:after{
+      background: #fff;
+    }
+  }
+  .btn-scroll {
+    @extend %element-center-h;
+    color: #fff;
+    @include size(50px);
+    bottom: 9.5%;
+    @include media('<desktop') {
+      bottom: 15px;
+    }
+    @include media('<=desktop', 'portrait', '>phone') {
+      @include size(76px);
+      bottom: 9.5%;
+    }
+    border: 1px solid #fff;
+    font-size: 25px;
+    span{
+      position: absolute;
+      display: block;
+      top: calc(50% - 18px);
+      left: calc(50% - 15px);
+      animation: bounce 2s infinite 2s;
+      transition: all .2s ease-in;
+      pointer-events: none;
+      &:before{
+        content: '\f100';
+        font-family: 'Flaticon';
+        font-size: 30px;
+        font-style: normal;
+        transform: rotateZ(90deg);
+        display: block;
+      }
+    }
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100%,
+  20%,
+  50%,
+  80% {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+  40% {
+    -webkit-transform: translateY(-10px);
+    -ms-transform: translateY(-10px);
+    transform: translateY(-10px);
+  }
+  60% {
+    -webkit-transform: translateY(-5px);
+    -ms-transform: translateY(-5px);
+    transform: translateY(-5px);
+  }
+}
+@include media('>desktop', 'landscape') {
+  .entry__video {
+    height: 100vh;
+  }
+}

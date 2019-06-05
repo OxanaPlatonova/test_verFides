@@ -1,0 +1,39 @@
+@include media('>desktop') {
+  .questions-section {
+    [class*=__caption]{
+      margin-bottom: 20px;
+    }
+    form{
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      max-width: 735px;
+      margin: 0 auto;
+      input ~ input{
+        margin-top: 20px;
+      }
+      input, textarea{
+        width: 100%;
+      }
+      textarea{
+        min-height: 190px;
+      }
+    }
+  }
+  .questions__form{
+    & > div{
+      width: 50%;
+      max-width: 353px;
+    }
+  }
+  .questions__notation{
+    width: 100%;
+    letter-spacing: 0.5px;
+    margin: 0 0 11px 7px;
+  }
+}
+@include media('<=desktop') {
+  .questions-section{
+    display: none;
+  }
+}
