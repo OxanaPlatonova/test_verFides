@@ -1,18 +1,17 @@
-@include media('>desktop') {
-  [class*=__column-two] {
+.wrapper__column-two {
+  @include media('>tablet') {
     column-count: 2;
     column-gap: 25px;
-    p{
-      display: grid;
-    }
   }
-  [class*=__column-three]{
+}
+.wrapper__column-three{
+  @include media('>desktop') {
     display: flex;
     justify-content: space-between;
-    p{
+    p {
       flex: 1;
     }
-    P:nth-child(2){
+    P:nth-child(2) {
       margin: 0 31px;
     }
   }

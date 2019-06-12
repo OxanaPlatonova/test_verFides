@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Web Starter Kit</title>
+  <title>VerFides</title>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300i,400,700&display=swap" rel="stylesheet">
   <link media="all" rel="stylesheet" href="assets/css/vendor.min.css">
   <link media="all" rel="stylesheet" href="assets/css/style.min.css">
@@ -14,8 +14,11 @@
 <body>
   <header class="header" id="header_main">
     <div class="header__container">
-      <div class="header__logo">
-        <a class="logo" title="verFides"><span></span></a>
+      <div class="header__logo-wrapper">
+        <a class="header__logo" title="verFides">
+          <img class="header__logo-img header__logo-white" src="assets/images/svg/logowhite.svg" alt="VerFides">
+          <img class="header__logo-img header__logo-color" src="assets/images/svg/logocolor.svg" alt="VerFides">
+        </a>
       </div>
       <div class="nav-box">
         <nav>
@@ -41,31 +44,32 @@
           </ul>
         </nav>
       </div>
-      <div class="nav-opener" id="navToggle">
-        <div class="nav-opener__button" role="navigation"></div>
-      </div>
+      <button class="nav-opener" id="navToggle">
+        <span class="nav-opener__button" role="navigation"></span>
+      </button>
     </div>
   </header>
-  <section class="entry entry-section">
-    <h2 class="entry__title h1">Wealth structuring, <wbr/>preservation and protection.</h2>
+  <section class="entry-section section-default">
+    <h2 class="entry__title h1">Wealth structuring, preservation and protection.</h2>
     <div class="entry__video-wrapper">
-      <video class="entry__video" autoplay loop muted poster="assets/images/verfides-shard.jpg">
-        <source src="assets/video/verfides.mp4" type="video/mp4">
-      </video>
-      <a class="entry__video-control">
-        <span class="video-pause" style="pointer-events: none;">Pause</span>
-      </a>
+      <iframe id="video" class="entry__iframe" width="100%" height="100%"
+              src="https://www.youtube.com/embed/O6CLkUKePm8?rel=0&modestbranding=1&autohide=1&mute=1&controls=0&autoplay=1&playsinline=1&disablekb=1&enablejsapi=1&playlist=O6CLkUKePm8" frameborder="0"
+              allowfullscreen></iframe>
+      <div class="entry__video-control">
+        <button id="pause-button" class="pause-button video-button">Pause</button>
+        <button id="play-button" class="play-button video-button">Play</button>
+      </div>
     </div>
-    <img class="entry__img-mb" src="assets/images/verfides-shard-mobile.jpg" alt="">
+    <img class="entry__img img-mobile" src="assets/images/verfides-shard-mobile.jpg" alt="">
     <a href="#main" class="btn-scroll"><span></span></a>
   </section>
   <main id="main">
-    <section class="welcome-section welcome-section welcome-section--overlay-light">
+    <section class="welcome-section section--overlay-light">
       <div class="container">
         <h2 class="h1">Welcome to verFides</h2>
-        <p class="h3 welcome__caption">We’re a professional advisor and provider of specialised services in the wealth
-          management sector.</p>
-        <div class="welcome__description welcome__column-two welcome__description-lp">
+        <h3 class="h3 welcome__caption">We’re a professional advisor and provider of specialised services in the wealth
+          management sector.</h3>
+        <div class="welcome__description wrapper__column-two">
           <p>Our name is derived from two Latin words which express renewal and trust.</p>
           <p>Our mission is to live up to our name by combining a fresh approach with integrity and experience to offer a
             comprehensive and discreet service.</p>
@@ -88,147 +92,139 @@
           <p>Our knowledge and experience together with the business creativity of our clients is a powerful combination
             and makes Verfides a trusted partner and an experienced adviser.</p>
         </div>
-        <div class="welcome__description welcome__column-two welcome__description-mb">
-          <p>Our name comes from the Latin words for renewal and trust, and our mission is to live up to that name at
-            all times – combining a fresh, creative approach to wealth management with the discretion and outstanding
-            personal service the sector demands.</p>
-          <p>We’re based in London and we’re fully independent. Our team comes with longstanding experience in wealth
-            management – but also  world-class expertise in the provision of professional services to private clients.
-            It’s a powerful combination. </p>
-        </div>
       </div>
     </section>
-    <section class="services-section services">
+    <section class="services-section section-default">
       <div class="container">
         <h2 class="h1">Services</h2>
         <div class="owl-carousel owl-theme">
           <div class="item services__item item-1">
             <a href="" class="services__icon-wrapper">
-              <div class="services__icon icon-hourglass"></div>
+              <img class="services__icon" src="assets/images/svg/hourglass.svg" alt="">
             </a>
             <h3 class="services__title-wrapper"><a href=""><span>Trust & Estate </span>Planning</a></h3>
           </div>
 
           <div class="item services__item item-2">
             <a href="" class="services__icon-wrapper">
-              <div class="services__icon icon-balance"></div>
+              <img class="services__icon" src="assets/images/svg/balance.svg" alt="">
             </a>
             <h3 class="services__title-wrapper"><a href=""><span>Tax Advisory </span>Services</a></h3>
           </div>
 
           <div class="item services__item item-3">
             <a href="" class="services__icon-wrapper">
-              <div class="services__icon icon-puzzle"></div>
+              <img class="services__icon" src="assets/images/svg/puzzle.svg" alt="">
             </a>
             <h3 class="services__title-wrapper"><a href="">Employment Solutions: <br>UK Businesses</a></h3>
           </div>
 
           <div class="item services__item item-4">
             <a href="" class="services__icon-wrapper">
-              <div class="services__icon icon-key"></div>
+              <img class="services__icon" src="assets/images/svg/key.svg" alt="">
             </a>
             <h3 class="services__title-wrapper"><a href=""><span>UK Real Estate </span>Structuring</a></h3>
           </div>
 
           <div class="item services__item item-5">
             <a href="" class="services__icon-wrapper">
-              <div class="services__icon icon-uk"></div>
+              <img class="services__icon" src="assets/images/svg/uk.svg" alt="">
             </a>
             <h3 class="services__title-wrapper"><a href="">Coming to the UK: <br>Businesses & Individuals</a></h3>
           </div>
 
           <div class="item services__item item-6">
             <a href="" class="services__icon-wrapper">
-              <div class="services__icon icon-tree"></div>
+              <img class="services__icon" src="assets/images/svg/tree.svg" alt="">
             </a>
             <h3 class="services__title-wrapper"><a href="">Wealth Structure & <br>Family Office</a></h3>
           </div>
 
           <div class="item services__item item-7">
             <a href="" class="services__icon-wrapper">
-              <div class="services__icon icon-case"></div>
+              <img class="services__icon" src="assets/images/svg/case.svg" alt="">
             </a>
             <h3 class="services__title-wrapper"><a href="">Corporate & Fiduciary <br>Services</a></h3>
           </div>
 
           <div class="item services__item item-8">
             <a href="" class="services__icon-wrapper">
-              <div class="services__icon icon-brushes"></div>
+              <img class="services__icon" src="assets/images/svg/brushes.svg" alt="">
             </a>
             <h3 class="services__title-wrapper"><a href="">Accountancy & <br>Tax Compliance</a></h3>
           </div>
         </div>
       </div>
     </section>
-    <section class="full-image">
-      <img class="full-image__img-desktop" src="assets/images/full-desktop-image.jpg" alt="">
-      <img class="full-image__img-mb" src="assets/images/full-image-mb.jpg" alt="">
-    </section>
-    <section class="management-section management management-section--overlay-light">
+    <div class="full-image">
+      <img class="full-image__img img-desktop" src="assets/images/full-desktop-image.jpg" alt="">
+      <img class="full-image__img img-mobile" src="assets/images/full-image-mb.jpg" alt="">
+    </div>
+    <section class="management-section management section--overlay-light">
       <div class="container">
         <h2 class="h1">Management</h2>
         <div class="management__content">
-          <div>
-            <img src="assets/images/managing-director.jpg" alt="">
+          <div class="management__item">
+            <img class="management__photo" src="assets/images/managing-director.jpg" alt="">
             <h3 class="management__name">Marco Marano</h3>
             <span class="management__position">Managing Director</span>
             <ul class="management__contact">
-              <li>
-                <a target="_blank" class="icon-in" href=""></a>
+              <li class="management__contact-list">
+                <a target="_blank" class="management__contact-link icon-in" href=""></a>
               </li>
-              <li>
-                <a class="icon-envelope" href="mailto:test@gmail.com"></a>
+              <li class="management__contact-list">
+                <a class="management__contact-link icon-envelope" href="mailto:test@gmail.com"></a>
               </li>
-              <li>
-                <a class="vcard" href="">vCard</a>
+              <li class="management__contact-list">
+                <a class="management__contact-link vcard" href="">vCard</a>
               </li>
             </ul>
           </div>
-          <div>
-            <img src="assets/images/director.jpg" alt="">
+          <div class="management__item">
+            <img class="management__photo" src="assets/images/director.jpg" alt="">
             <h3 class="management__name">Carlo Borea</h3>
             <span class="management__position">Director</span>
             <ul class="management__contact">
-              <li>
-                <a target="_blank" class="icon-in" href=""></a>
+              <li class="management__contact-list">
+                <a target="_blank" class="management__contact-link icon-in" href=""></a>
               </li>
-              <li>
-                <a class="icon-envelope" href="mailto:test@gmail.com"></a>
+              <li class="management__contact-list">
+                <a class="management__contact-link icon-envelope" href="mailto:test@gmail.com"></a>
               </li>
-              <li>
-                <a class="vcard" href="">vCard</a>
+              <li class="management__contact-list">
+                <a class="management__contact-link vcard" href="">vCard</a>
               </li>
             </ul>
           </div>
-          <div>
-            <img src="assets/images/director-2.jpg" alt="">
+          <div class="management__item">
+            <img class="management__photo" src="assets/images/director-2.jpg" alt="">
             <h3 class="management__name">Angela Soave</h3>
             <span class="management__position">Operations & Family Office</span>
             <ul class="management__contact">
-              <li>
-                <a target="_blank" class="icon-in" href=""></a>
+              <li class="management__contact-list">
+                <a target="_blank" class="management__contact-link icon-in" href=""></a>
               </li>
-              <li>
-                <a class="icon-envelope" href="mailto:test@gmail.com"></a>
+              <li class="management__contact-list">
+                <a class="management__contact-link icon-envelope" href="mailto:test@gmail.com"></a>
               </li>
-              <li>
-                <a class="vcard" href="">vCard</a>
+              <li class="management__contact-list">
+                <a class="management__contact-link vcard" href="">vCard</a>
               </li>
             </ul>
           </div>
-          <div>
-            <img src="assets/images/managing-director.jpg" alt="">
+          <div class="management__item">
+            <img class="management__photo" src="assets/images/managing-director.jpg" alt="">
             <h3 class="management__name">Terence Pay</h3>
             <span class="management__position">International Tax Advisory</span>
             <ul class="management__contact">
-              <li>
-                <a target="_blank" class="icon-in" href=""></a>
+              <li class="management__contact-list">
+                <a target="_blank" class="management__contact-link icon-in" href=""></a>
               </li>
-              <li>
-                <a class="icon-envelope" href="mailto:test@gmail.com"></a>
+              <li class="management__contact-list">
+                <a class="management__contact-link icon-envelope" href="mailto:test@gmail.com"></a>
               </li>
-              <li>
-                <a class="vcard" href="">vCard</a>
+              <li class="management__contact-list">
+                <a class="management__contact-link vcard" href="">vCard</a>
               </li>
             </ul>
           </div>
@@ -236,76 +232,81 @@
         <a class="learn-more" href="">See All</a>
       </div>
     </section>
-    <section class="tax tax-section tax-section--overlay-dark">
-      <img src="assets/images/world-map.png" alt="">
+    <section class="tax tax-section section-default section--overlay-dark">
+      <img src="assets/images/world-map.png" alt="" class="tax__img">
       <div class="container">
-        <h2 class="h1">Tax at a Glance</h2>
-        <p class="h3 tax__caption">View international tax rates with our built-in feature.</p>
+        <h2 class="h1 tax__title">Tax at a Glance</h2>
+        <h3 class="tax__caption">View international tax rates with our built-in feature.</h3>
         <a class="learn-more" href="">View Intl Tax Rates</a>
       </div>
     </section>
-    <section class="resources resources-section resources-section--overlay-light">
+    <section class="resources resources-section section-default section--overlay-light">
       <div class="container">
         <h2 class="h1">Resources</h2>
-        <p class="h3 resources__caption resources__caption-desktop">We regularly publish technical articles and guides on our website and in
+        <h3 class="resources__caption resources__caption">We regularly publish technical articles and guides on our website and in
           professional publications on various tax and structuring matters, including updates on developments in UK and
-          international tax. Click “See All” below to view our full library. </p>
-        <p class="h3 resources__caption resources__caption-mb">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-          sed do eiusmod tempor incididunt ut labore et.</p>
-        <div class="resources__description resources__column-two">
-          <p>
-            <a href="" class="resources__link">Spain: ECJ Rules Inheritance Tax Discriminatory</a>
-            The European Court of Justice (ECJ) has ruled that Spain is in breach of European Union treaties by imposing a higher rate of gift and inheritance taxes on non-residents.
+          international tax. Click “See All” below to view our full library. </h3>
+        <div class="resources__description wrapper__column-two">
+          <article class="resources-article">
+            <h3 class="article-title">Spain: ECJ Rules Inheritance Tax Discriminatory</h3>
+            <p class="article-description">
+              The European Court of Justice (ECJ) has ruled that Spain is in breach of European Union treaties by
+              imposing a higher rate of gift and inheritance taxes on non-residents.
+            </p><a class="learn-more-link" href="">Read More</a>
+          </article>
+          <article class="resources-article">
+            <h3 class="article-title">UK: Remittance Basis Restricted For Loan Collateral</h3>
+            <p class="article-description">
+              HMRC has announced the sudden withdrawal of a concession whereby foreign income and gains used as loan
+              collateral were not considered to have been remitted to the UK.
+            </p>
             <a class="learn-more-link" href="">Read More</a>
-          </p>
-          <p><a href="" class="resources__link">UK: Remittance Basis Restricted For Loan Collateral</a>
-            HMRC has announced the sudden withdrawal of a concession whereby foreign income and gains used as loan
-            collateral were not considered to have been remitted to the UK.
-            <a class="learn-more-link" href="">Read More</a>
-          </p>
+          </article>
         </div>
-        <a class="learn-more" href="">See All</a>
-        <p class="h3 resources__caption">Brochures Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        <div class="wrapper-button">
+          <a class="learn-more" href="">See All</a>
+        </div>
+        <h3 class="resources__caption">Brochures Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h3>
         <div class="resources__pdf">
           <div>
-            <img src="assets/images/resource-1.jpg" alt="">
+            <img src="assets/images/resource-1.jpg" class="resources__pdf-img" alt="">
             <p>verFides Service Brochure 2015</p>
             <a href="" download="">Download PDF</a>
           </div>
           <div>
-            <img src="assets/images/resource-2.jpg" alt="">
+            <img src="assets/images/resource-2.jpg" class="resources__pdf-img" alt="">
             <p>verFides Financial Report 2014/15</p>
             <a href="" download="">Download PDF</a>
           </div>
         </div>
       </div>
     </section>
-    <section class="registration registration-section registration-section--overlay-dark">
+    <section class="registration registration-section section--overlay-dark">
       <div class="container">
-        <p class="h3 registration__caption">Register here for our mailing list and we will keep you up to date with news
-          from Verfides.</p>
+        <h3 class="registration__caption">Register here for our mailing list and we will keep you up to date with news
+          from Verfides.</h3>
         <form class="registration__form">
-          <input type="text" placeholder="Name">
-          <input type="email" placeholder="Email Address">
-          <button class="btn-submit">Submit<i></i></button>
+          <input type="text" class="registration__input" placeholder="Name">
+          <input type="email" class="registration__input" placeholder="Email Address">
+          <button class="button btn-submit">Submit<i></i></button>
         </form>
       </div>
     </section>
-    <section class="contact-info contact-info-section contact-info-section--overlay-light">
+    <section class="contact-info contact-info-section section--overlay-light">
       <div class="container">
         <h2 class="h1">Contact Us</h2>
-        <p class="h3 contact-info__caption">We’re based in London and have offices in key international financial centres.
+        <h3 class="contact-info__caption">We’re based in London and have offices in key international financial centres.
           We also partner with outstanding professionals worldwide – so wherever you or your clients are, we can deliver
-          the very best knowledge, resources and service. </p>
-        <div class="contact-info__address">
+          the very best knowledge, resources and service. </h3>
+        <div class="contact-info__address-wrapper">
           <div>
             <div>
               <a href="" class="contact__map-wrapper">
-                <img src="assets/images/london_copy.png" alt="">
+                <img src="assets/images/london_copy.png" alt="" class="contact-info__img">
               </a>
             </div>
             <a href="" class="contact__map-link">London - UK</a>
-            <address>
+            <address class="contact-info__address">
               5th Floor<br>
               86 Jermyn Street<br>
               St James, London<br>
@@ -321,11 +322,11 @@
           <div>
             <div>
               <a href="" class="contact__map-wrapper">
-                <img src="assets/images/dublin_copy.png" alt="">
+                <img src="assets/images/dublin_copy.png" alt="" class="contact-info__img">
               </a>
             </div>
             <a href="" class="contact__map-link">Dublin – Ireland</a>
-            <address>
+            <address class="contact-info__address">
               68 Fitzwilliam Square<br>
               Dublin 2<br>
               Ireland
@@ -340,11 +341,11 @@
           <div>
             <div>
               <a href="" class="contact__map-wrapper">
-                <img src="assets/images/cyprus_copy.png" alt="">
+                <img src="assets/images/cyprus_copy.png" alt="" class="contact-info__img">
               </a>
             </div>
             <a href="" class="contact__map-link">Nicosia - Cyprus</a>
-            <address>
+            <address class="contact-info__address">
               30 Costa Anaxagora<br>
               Storikon Building<br>
               1st Floor, Office 102<br>
@@ -359,28 +360,26 @@
         </div>
       </div>
     </section>
-    <section class="questions questions-section questions-section--overlay-dark">
+    <section class="questions questions-section section--overlay-dark">
       <div class="container">
         <h2 class="h1">Questions?</h2>
-        <p class="h3 questions__caption">Feel free to send us an enquiry for an initial consultation.</p>
+        <h3 class="questions__caption">Feel free to send us an enquiry for an initial consultation.</h3>
         <form class="questions__form">
           <span class="questions__notation">Mandatory Fields*</span>
-          <div>
-            <input type="text" placeholder="Name*">
-            <input type="email" placeholder="Email Address*">
-            <input type="email" placeholder="Telephone*">
+          <div class="wrapper__column-two">
+            <input type="text" placeholder="Name*" class="questions__input">
+            <input type="email" placeholder="Email Address*" class="questions__input">
+            <input type="text" placeholder="Telephone*" class="questions__input">
+            <textarea placeholder="Enquiry*" cols="30" rows="10" class="questions__textarea"></textarea>
           </div>
-          <div>
-            <textarea placeholder="Enquiry*" cols="30" rows="10"></textarea>
-          </div>
-          <button class="btn-submit">Submit<i></i></button>
+          <button class="button btn-submit">Submit<i></i></button>
         </form>
       </div>
     </section>
-    <section class="supervisory supervisory-section supervisory-section--overlay-light">
+    <section class="supervisory supervisory-section section--overlay-light">
       <div class="container">
         <h2 class="h1">Supervisory & Regulatory Bodies</h2>
-        <div class="supervisory__description supervisory__column-three">
+        <div class="supervisory__description wrapper__column-three">
           <p>Verfides is registered with and supervised by HM Revenue and Customs as a Trust and Company Service
             Provider ("TCSP") under The Money Laundering Regulations 2007.</p>
           <p>Verfides (Ireland) Limited and Verfides Trustees Limited are authorised by the Department of Justice and
@@ -392,53 +391,58 @@
         </div>
       </div>
     </section>
-    <section class="currency">
-      <ul class="currency__list-choice">
+    <div class="currency">
+      <div class="currency__list-choice">
         Currency:
-        <li class="open">GBP£</li>
-        <li>EUR€</li>
-        <li>USD$</li>
-      </ul>
+        <ul class="currency__items-choice">
+          <li class="open">GBP£</li>
+          <li>EUR€</li>
+          <li>USD$</li>
+        </ul>
+      </div>
       <div class="currency__list">
         <div class="currency__relation" id="currency__relation"></div>
-        <marquee class="currency__strip" id="currency__strip"></marquee>
+        <div class="currency__strip" id="currency__strip"></div>
       </div>
-    </section>
+    </div>
   </main>
   <footer class="footer-page">
     <nav class="footer-page__nav">
-      <ul>
-        <li><a href="">Home</a></li>
-        <li><a href="">Services</a></li>
-        <li><a href="">Management</a></li>
-        <li><a href="">Resources</a></li>
-        <li><a href="">Contact Us</a></li>
-        <li><a href="">Client Area</a></li>
-        <li><a href="">Careers</a></li>
-        <li><a href=""><i class="icon-in"></i>LinkedIn</a></li>
-        <li><a href="">T&Cs</a></li>
+      <ul class="footer-page__nav-items">
+        <li class="footer-page__nav-item"><a href="">Home</a></li>
+        <li class="footer-page__nav-item"><a href="">Services</a></li>
+        <li class="footer-page__nav-item"><a href="">Management</a></li>
+        <li class="footer-page__nav-item"><a href="">Resources</a></li>
+        <li class="footer-page__nav-item"><a href="">Contact Us</a></li>
+        <li class="footer-page__nav-item"><a href="">Client Area</a></li>
+        <li class="footer-page__nav-item"><a href="">Careers</a></li>
+        <li class="footer-page__nav-item"><a href=""><i class="icon-in"></i>LinkedIn</a></li>
+        <li class="footer-page__nav-item"><a href="">T&Cs</a></li>
       </ul>
     </nav>
     <nav class="footer-page__services-nav">
       <ul>
-        <li><a href="">Trust & Estate Planning</a></li>
-        <li><a href="">Tax Advisory Services</a></li>
-        <li><a href="">Employment Solutions: UK Businesses</a></li>
-        <li><a href="">UK Real Estate Structuring</a></li>
-        <li><a href="">Coming to the UK: Businesses & Individuals</a></li>
-        <li><a href="">Wealth Structure & Family Office</a></li>
-        <li><a href="">Corporate & Fiduciary Services</a></li>
-        <li><a href="">Accountancy & Tax Compliance</a></li>
+        <li class="footer-page__services-nav-item"><a href="">Trust & Estate Planning</a></li>
+        <li class="footer-page__services-nav-item"><a href="">Tax Advisory Services</a></li>
+        <li class="footer-page__services-nav-item"><a href="">Employment Solutions: UK Businesses</a></li>
+        <li class="footer-page__services-nav-item"><a href="">UK Real Estate Structuring</a></li>
+        <li class="footer-page__services-nav-item"><a href="">Coming to the UK: Businesses & Individuals</a></li>
+        <li class="footer-page__services-nav-item"><a href="">Wealth Structure & Family Office</a></li>
+        <li class="footer-page__services-nav-item"><a href="">Corporate & Fiduciary Services</a></li>
+        <li class="footer-page__services-nav-item"><a href="">Accountancy & Tax Compliance</a></li>
       </ul>
     </nav>
     <div class="footer-page__bottom">
-      <a class="footer-page__logo icon-logocolor" title="verFides"></a>
+      <a class="footer-page__logo" title="verFides">
+        <img src="assets/images/svg/logocolor.svg" alt="VerFides">
+      </a>
       <div class="footer-page__copyright">
         <span>© Copyright 2015</span>
       </div>
     </div>
   </footer>
   <script src="assets/js/vendor.min.js" defer></script>
+  <script src="https://www.youtube.com/iframe_api" defer></script>
   <script src="assets/js/app.js" defer></script>
 </body>
 </html>

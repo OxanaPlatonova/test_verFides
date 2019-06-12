@@ -2,7 +2,7 @@
 //
 // You can remove or add your own function in this file.
 
-const HS = {
+const headerFixed = {
   headerSticky() {
     const headerHeight = $('#header_main').height();
     $(window).scroll((e) => {
@@ -16,4 +16,4 @@ const HS = {
   },
 };
 
-export default HS;
+export default headerFixed;

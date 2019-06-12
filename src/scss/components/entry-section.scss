@@ -1,105 +1,116 @@
 .entry-section{
-  padding: 0;
-}
-.entry{
-  position: relative;
-  overflow: hidden;
   color: #fff;
   max-height: 100vh;
+}
+.entry__title{
+  z-index: 2;
+  position: absolute;
+  @extend %element-center;
   @include media('<=desktop') {
-    &__video-wrapper {
-      display: none;
-    }
-    [class*=entry__img]{
-      @include size(100vw, 100vh);
-      object-fit: cover;
-    }
+    padding: 15px;
+    width: 100%;
+  }
+  @include media('<=desktop', 'portrait', '>phone') {
+    margin-top: 40px;
+  }
+  @include media('<=phone') {
+    margin-top: 20px;
   }
   @include media('>desktop') {
-    &__video{
-      object-fit: cover;
-      @include size(100vw, auto);
-    }
-    &__video-control{
-      bottom: 42px;
-      right: 41px;
-      color: #fff;
-      cursor: pointer;
-      font-size: 18px;
-      span{
-        pointer-events: none;
-        &:after{
-          content: '';
-          display: inline-block;
-          vertical-align: middle;
-        }
-      }
-      .video-pause:after{
-        @include size(18px, 20px);
-        border-left: 6px solid #fff;
-        border-right: 6px solid #fff;
-        margin-left: 10px;
-      }
-      .video-play:after{
-        border: 10px solid transparent;
-        border-left: 21px solid #fff;
-        margin: 0 -10px 0 10px;
-      }
-    }
+    max-width: 500px;
   }
-  & > *:not(&__video-wrapper):not(img),
-  &__video-control{
+  &:after{
+    background: #fff;
+  }
+}
+.entry__img{
+  @include media('<=desktop') {
+    @include size(100vw, 100vh);
+    object-fit: cover;
+  }
+}
+.entry__video-wrapper {
+  @include media('<=desktop') {
+    display: none;
+  }
+  @include media('>desktop') {
+    position: relative;
+    @include size(100%, 100vh);
+    padding: 60px 0;
+    box-sizing: initial;
+    margin: -60px 0;
+  }
+}
+.entry__iframe{
+  @include media('>desktop') {
     position: absolute;
+    top: 0;
+    left: 0;
+    @include size(100%);
   }
-  h2{
-    @extend %element-center;
-    @include media('>desktop') {
-      max-width: 500px;
-    }
-    @include media('<=desktop') {
-      padding: 15px;
-      width: 100vw;
-    }
-    @include media('<=desktop', 'portrait', '>phone') {
-      margin-top: 40px;
-    }
-    @include media('landscape') {
-      font-size: 36px;
-    }
-    &:after{
-      background: #fff;
-    }
+}
+.entry__video-control{
+  position: absolute;
+  bottom: 107px;
+  right: 41px;
+}
+.video-button{
+  color: #fff;
+  border: none;
+  padding: 0;
+  font-size: 18px;
+  display: none;
+  &:after{
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
   }
-  .btn-scroll {
-    @extend %element-center-h;
-    color: #fff;
-    @include size(50px);
+}
+.pause-button:after{
+  @include size(6px, 20px);
+  border-left: 6px solid #fff;
+  border-right: 6px solid #fff;
+  margin-left: 10px;
+}
+.play-button:after{
+  border: 10px solid transparent;
+  border-left: 21px solid #fff;
+  margin: 0 -10px 0 10px;
+}
+.btn-scroll {
+  position: absolute;
+  @extend %element-center-h;
+  color: #fff;
+  @include size(50px);
+  bottom: 11%;
+  @include media('<desktop') {
     bottom: 9.5%;
-    @include media('<desktop') {
-      bottom: 15px;
-    }
-    @include media('<=desktop', 'portrait', '>phone') {
-      @include size(76px);
-      bottom: 9.5%;
-    }
-    border: 1px solid #fff;
-    font-size: 25px;
-    span{
-      position: absolute;
+    @include size(36px);
+  }
+  border: 1px solid #fff;
+  font-size: 25px;
+  &:hover{
+    color: #fff;
+  }
+  span{
+    position: absolute;
+    display: block;
+    top: calc(50% - 18px);
+    left: calc(50% - 15px);
+    animation: bounce 2s infinite 2s;
+    pointer-events: none;
+    font-size: 30px;
+    &:before{
+      content: '\f100';
+      font-family: 'Flaticon';
+      font-style: normal;
+      transform: rotateZ(90deg);
       display: block;
-      top: calc(50% - 18px);
-      left: calc(50% - 15px);
-      animation: bounce 2s infinite 2s;
-      transition: all .2s ease-in;
-      pointer-events: none;
-      &:before{
-        content: '\f100';
-        font-family: 'Flaticon';
-        font-size: 30px;
-        font-style: normal;
-        transform: rotateZ(90deg);
-        display: block;
-      }
+    }
+    @include media('<desktop') {
+      top: calc(50% - 12px);
+      left: calc(50% - 9px);
+      font-size: 18px;
     }
   }
 }
@@ -123,10 +134,5 @@
     -webkit-transform: translateY(-5px);
     -ms-transform: translateY(-5px);
     transform: translateY(-5px);
-  }
-}
-@include media('>desktop', 'landscape') {
-  .entry__video {
-    height: 100vh;
   }
 }

@@ -23,10 +23,12 @@ textarea {
   background: map-get($forms, 'form-element-background-color');
   padding: map-get($forms, 'form-element-padding');
   font-family: map-get($forms, 'form-font-family');
-  [class*=-section--overlay-dark] &{
+  .section--overlay-dark &{
     color: #fff;
   }
-
+  @include media('<=phone') {
+    padding: 0.9em 0.6em;
+  }
   &:focus {
     border-color: map-get($forms, 'form-element-focus-border-color');
   }
@@ -55,24 +57,25 @@ input[type='submit'] {
   cursor: pointer;
   font-family: map-get($forms, 'form-font-family');
 }
-
 button{
   background: transparent;
   outline: none;
+  border: 1px solid;
+}
+.button{
   font-weight: 700;
   display: block;
   text-align: center;
   margin: 0 auto;
-  border: 1px solid;
   padding: 16px 5px;
-  [class*=-section--overlay-ligth] &{
+  .section--overlay-dark &{
     border-color: map-deep-get($base, 'base-background-dark-color');
     &:hover{
       background-color: map-deep-get($base, 'base-background-dark-color');
       color: #fff;
     }
   }
-  [class*=-section--overlay-dark] &{
+  .section--overlay-dark &{
     color: #fff;
     border-color: #fff;
     &:hover{
@@ -83,29 +86,18 @@ button{
   }
 }
 .btn-submit{
-  margin-top: 40px;
+  @include media('<=desktop') {
+    min-width: 142px;
+    padding: 12px 5px 15px;
+    margin-top: 21px;
+  }
+  @include media('>desktop') {
+    min-width: 170px;
+    margin-top: 40px;
+  }
   &:after{
     content: '\f101';
     font-family: 'Flaticon';
     margin-left: 5px;
-  }
-}
-@include media('>desktop') {
-  .btn-submit{
-    width: 170px;
-  }
-}
-@include media('<=desktop') {
-  input[type='text'],
-  input[type='tel'],
-  input[type='email'],
-  input[type='search'],
-  input[type='password'],
-  textarea {
-    padding: 0.9em 0.6em;
-  }
-  .btn-submit{
-    width: 280px;
-    padding: 26px 15px;
   }
 }

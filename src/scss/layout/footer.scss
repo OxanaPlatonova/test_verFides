@@ -1,99 +1,105 @@
-.footer-page{
+.footer-page {
+  text-align: center;
+  padding: 43px 29px 16px;
+  @include media('<=desktop') {
+    border-top: 2px solid #173356;
+  }
+  @include media('<=phone') {
+    padding: 15px 29px 12px;
+  }
   ul{
     @extend %listreset;
     li{
-      display: inline-block;
+      @include media('>phone') {
+        display: inline-block;
+      }
     }
   }
-  nav{
-    margin: 0 auto;
-  }
-  text-align: center;
-  padding: 43px 29px 16px;
 }
-.footer-page__nav{
+.footer-page__nav {
   max-width: 660px;
-  li{
-    margin: 4px 13px;
+  margin: 0 auto;
+  @include media('>phone') {
+    &:after {
+      content: '';
+      display: block;
+      background: #769eca;
+      @include size(250px, 1px);
+      margin: 12px auto 15px;
+    }
   }
-  a{
-    color: map-get($base, 'base-text-color');
-    font-size: 16px;
-  }
-  .icon-in{
+  .icon-in {
     @include size(13px);
     display: inline-block;
     border-radius: 2px;
     margin-right: 3px;
+    @include media('<=phone') {
+      @include size(10px);
+    }
   }
 }
-.footer-page__services-nav{
-  max-width: 1010px;
-  li{
-    margin: 5px 11px;
+.footer-page__nav-item {
+  margin: 4px 13px;
+  @include media('<=phone') {
+    display: block;
+    margin: 2px 0;
   }
+  a {
+    color: map-get($base, 'base-text-color');
+    font-size: 16px;
+    &:hover{
+      color: #1a3255;
+    }
+    @include media('<=phone') {
+      font-size: 13px;
+    }
+  }
+}
+.footer-page__services-nav {
+  max-width: 1010px;
+  margin: 0 auto;
+  @include media('<=phone') {
+    display: none;
+  }
+}
+.footer-page__services-nav-item {
+  margin: 5px 11px;
   a{
     color: #002e5f;
+    &:hover{
+      color: map-get($base, 'base-link-color-hover');
+    }
   }
 }
-.footer-page__bottom{
+.footer-page__bottom {
   border-top: 1px solid #78787840;
   margin-top: 32px;
   padding-top: 17px;
+  @include media('<=phone') {
+    margin-top: 15px;
+    padding-top: 10px;
+  }
 }
-.footer-page__logo{
-  @include size(92px, 20px);
+.footer-page__logo {
+  width: 92px;
   display: inline-block;
 }
-.footer-page__copyright{
+.footer-page__copyright {
   font-size: 12px;
   line-height: 1.6em;
-}
-@include media('>desktop') {
-  .footer-page__nav:after{
-    content: '';
-    display: block;
-    background: #769eca;
-    @include size(250px, 1px);
-    margin: 12px auto 15px;
+  @include media('<=phone') {
+    font-size: 9px;
   }
 }
-@include media('<=desktop') {
-  .footer-page{
-    border-top: 2px solid #173356;
-    padding: 30px 55px 16px;
-    .icon-in {
-      @include size(20px);
-    }
-  }
-  .footer-page__nav{
-    ul{
-      li{
-        display: block;
-        margin: 4px 0;
-      }
-    }
-
-    a {
-      font-size: 26px;
-    }
-  }
-  .footer-page__services-nav{
-    display: none;
-  }
-  .footer-page__logo{
-    @include size(172px, 37px);
-  }
-  .footer-page__copyright {
-    font-size: 18px;
+.footer-page__logo {
+  @include media('<=phone') {
+    width: 85px;
   }
 }
-@include media('<=desktop', '>phone') {
-  .footer-page__nav{
-    ul{
-      column-count: 2;
-      column-gap: 25px;
-      text-align: left;
-    }
+.footer-page__nav-items{
+  @include media('<=phone') {
+    column-count: 2;
+    column-gap: 25px;
+    text-align: left;
   }
 }

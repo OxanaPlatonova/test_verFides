@@ -2,7 +2,7 @@
 //
 // You can remove or add your own function in this file.
 
-const NT = {
+const navOpen = {
   navToggle() {
     $('#navToggle').on('click', (e) => {
       const target = $(e.target);
@@ -12,4 +12,4 @@ const NT = {
   },
 };
 
-export default NT;
+export default navOpen;

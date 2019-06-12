@@ -1,32 +1,74 @@
 .contact-info-section {
-  padding: 72px 0 75px;
-  [class*=__caption] {
-    max-width: 810px;
+  @include media('<=phone') {
+    padding: 34px 0 0;
   }
-  address{
-    letter-spacing: 0.5px;
-    margin-bottom: 20px;
-    color: map-get($base, 'base-text-light-color');
+  @include media('>phone') {
+    padding: 72px 0 45px;
+  }
+}
+.contact-info__caption {
+  max-width: 810px;
+  @include media('>phone') {
+    margin-bottom: 57px;
   }
 }
 .contact__map-wrapper{
   display: block;
-  img{
-    vertical-align: middle;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.contact-info__img{
+  vertical-align: middle;
+  @include media('<=tablet') {
+    width: 112px;
+  }
+  @include media('>widescreen') {
+    transition: transform .4s cubic-bezier(.8, 0, .2, 1);
+    .contact__map-wrapper:hover &{
+      transform: scale(1.1);
+    }
   }
 }
 .contact-info__address{
+  letter-spacing: 0.5px;
+  margin-bottom: 20px;
+  color: map-get($base, 'base-text-light-color');
+  @include media('<=phone') {
+    margin-bottom: 13px;
+    line-height: 14px;
+  }
+}
+.contact-info__address-wrapper {
   text-align: center;
+  @include media('<=phone') {
+    line-height: 17px;
+  }
+  @include media('>phone') {
+    line-height: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch;
+    flex-wrap: wrap;
+    margin: 0 auto;
+  }
   & > div{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    margin-bottom: 30px;
+    @include media('<=phone') {
+      margin-bottom: 35px;
+    }
   }
 }
 .contact__map-link{
   font-size: 18px;
   display: block;
   margin: 26px 0 22px;
+  @include media('<=phone') {
+    font-size: 14px;
+    margin: 13px 0 16px;
+  }
   &:after{
     content: "";
     display: block;
@@ -34,6 +76,10 @@
     border-bottom: 2px solid map-get($base, 'base-link-color');
     margin: 0 auto;
     padding-top: 10px;
+    @include media('<=phone') {
+      width: 10px;
+      padding-top: 0;
+    }
   }
 }
 .contact-info__contact{
@@ -42,62 +88,4 @@
 }
 .contact-info__tel{
   color: #002e5f;
-}
-@include media('>=1050px') {
-  .contact-info-section [class*=__caption] {
-    margin-bottom: 61px;
-  }
-  .contact-info__address {
-    display: flex;
-    justify-content: space-between;
-    align-items: stretch;
-    max-width: 854px;
-    margin: 0 auto;
-  }
-}
-@include media('<1050px') {
-  .contact-info__address > div + div{
-    margin-top: 75px;
-  }
-}
-@include media('>desktop') {
-  .contact-info-section {
-    [class*=__caption]{
-      margin-bottom: 57px;
-    }
-  }
-  .contact-info__address{
-    line-height: 20px;
-  }
-}
-@include media('<=desktop') {
-  .contact-info-section [class*=__caption] {
-    margin-bottom: 33px;
-  }
-  .contact-info__address{
-    line-height: 28px;
-  }
-  .contact-info-section {
-    address {
-      margin-bottom: 30px;
-    }
-  }
-  .contact__map-link {
-    font-size: 28px;
-    margin: 28px 0 24px;
-  }
-  .contact__map-link:after {
-    width: 20px;
-    padding-top: 12px;
-  }
-}
-@include media('<=phone') {
-  .contact-info__contact{
-    li{
-      margin-bottom: 15px;
-    }
-    a{
-      display: block;
-    }
-  }
 }

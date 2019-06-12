@@ -3,21 +3,21 @@
 // This file will be compiled into app.js and will not be minified.
 // Feel free with using ES6 here.
 
-import VC from './modules/dots';
-import SD from './modules/scroll';
-import HS from './modules/header-sticky';
-import CW from './modules/currency';
-import NT from './modules/toogle-nav';
-import OC from './modules/carousel';
+import videoControl from './modules/video';
+import scrollBottom from './modules/scroll';
+import headerFixed from './modules/header-sticky';
+import currencyWithdrawal from './modules/currency';
+import navOpen from './modules/toogle-nav';
+import owlCarousel from './modules/carousel';
 
 (($) => {
   // When DOM is ready
   $(() => {
-    VC.videoControl();
-    SD.scroll();
-    HS.headerSticky();
-    OC.carousel();
-    CW.currency();
-    NT.navToggle();
+    videoControl.videoControl();
+    scrollBottom.scroll();
+    headerFixed.headerSticky();
+    owlCarousel.carousel();
+    currencyWithdrawal.currency();
+    navOpen.navToggle();
   });
 })(jQuery);

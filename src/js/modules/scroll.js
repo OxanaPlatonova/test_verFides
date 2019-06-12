@@ -2,7 +2,7 @@
 //
 // You can remove or add your own function in this file.
 
-const SD = {
+const scrollBottom = {
   scroll() {
     $('.btn-scroll').on('click', (e) => {
       e.preventDefault();
@@ -12,4 +12,4 @@ const SD = {
   },
 };
 
-export default SD;
+export default scrollBottom;

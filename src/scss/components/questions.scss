@@ -1,39 +1,37 @@
-@include media('>desktop') {
-  .questions-section {
-    [class*=__caption]{
-      margin-bottom: 20px;
-    }
-    form{
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      max-width: 735px;
-      margin: 0 auto;
-      input ~ input{
-        margin-top: 20px;
-      }
-      input, textarea{
-        width: 100%;
-      }
-      textarea{
-        min-height: 190px;
-      }
-    }
-  }
-  .questions__form{
-    & > div{
-      width: 50%;
-      max-width: 353px;
-    }
-  }
-  .questions__notation{
-    width: 100%;
-    letter-spacing: 0.5px;
-    margin: 0 0 11px 7px;
-  }
-}
-@include media('<=desktop') {
-  .questions-section{
+.questions-section {
+  padding: 71px 0 100px;
+  @include media('<=phone') {
     display: none;
   }
+}
+.questions__caption{
+  margin-bottom: 20px;
+}
+.questions__form{
+  max-width: 735px;
+  margin: 0 auto;
+}
+.questions__input{
+  width: 353px;
+  display: inherit;
+  @include media('<=tablet') {
+    width: 100%;
+  }
+  & ~ &{
+    margin-top: 20px;
+  }
+}
+.questions__textarea{
+  min-height: 190px;
+  width: 353px;
+  @include media('<=tablet') {
+    width: 100%;
+    margin-top: 20px;
+  }
+}
+.questions__notation{
+  width: 100%;
+  letter-spacing: 0.5px;
+  margin: 0 0 11px 7px;
+  display: block;
 }

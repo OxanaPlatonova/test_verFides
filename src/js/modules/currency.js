@@ -2,7 +2,7 @@
 //
 // You can remove or add your own function in this file.
 
-const CW = {
+const currencyWithdrawal = {
   currency() {
     $.getJSON('http://www.floatrates.com/daily/gbp.json', (data) => {
       const nameUSD = '<span class="currency__name">United States Dollar</span>';
@@ -32,4 +32,4 @@ const CW = {
   },
 };
 
-export default CW;
+export default currencyWithdrawal;

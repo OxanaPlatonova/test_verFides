@@ -1,35 +1,33 @@
 .tax-section {
-  position: relative;
+  text-align: center;
+  @include media('<=phone') {
+    padding: 34px 0 39px;
+  }
+  @include media('>phone') {
+    padding: 73px 0 80px;
+  }
   .container{
     position: relative;
     z-index: 2;
   }
-  h2{
+}
+.tax__title{
+  @include media('>phone') {
     margin-bottom: 27px;
   }
-  img{
-    position: absolute;
-    @extend %element-center;
-    z-index: 1;
-    opacity: 0.07;
+}
+.tax__caption {
+  @include media('<=phone') {
+    margin-bottom: 18px;
   }
 }
-@include media('>tablet') {
-  .tax-section {
-    padding: 73px 0 80px;
-  }
-}
-@include media('<=desktop') {
-  .tax-section img{
+.tax__img{
+  position: absolute;
+  @extend %element-center;
+  z-index: 1;
+  opacity: 0.07;
+  @include media('<=desktop') {
     height: 100%;
     object-fit: cover;
-  }
-}
-@include media('<=tablet') {
-  .tax-section {
-    padding: 67px 0 80px;
-    .tax__caption{
-      margin-bottom: 35px;
-    }
   }
 }

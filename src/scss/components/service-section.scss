@@ -1,4 +1,10 @@
 .services-section {
+  @include media('<=phone') {
+    padding: 30px 0 16px;
+  }
+  @include media('>phone') {
+    padding: 68px 0 72px;
+  }
   .container {
     max-width: 898px;
   }
@@ -16,13 +22,16 @@ $items-color: (
 .services__item{
   display: flex;
   align-items: center;
-  @each $key, $color in $items-color {
-    &.item-#{$key} .services__icon-wrapper {
-      background: $color;
+  @include media('<=tablet') {
+    padding-bottom: 24px;
+    position: relative;
+    &:not(:last-child):after{
+      display: block;
+      bottom: 12px;
     }
-    &.item-#{$key} .services__icon-wrapper:before {
-      border-color: $color;
-    }
+  }
+  @include media('>tablet') {
+    flex-direction: column;
   }
   .icon-key {
     transform: rotateZ(270deg) rotateY(180deg);
@@ -31,16 +40,39 @@ $items-color: (
     @extend %border-element;
   }
 }
-.services__icon-wrapper{
+.services__icon-wrapper {
   @include size(110px);
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 85%;
-  min-width: 110px;
   border-radius: 50%;
   cursor: pointer;
   position: relative;
+  @for $i from 1 to length($items-color) + 1 {
+    .owl-item:nth-child(8n + #{$i + 4}) &{
+      background: map-deep-get($items-color, $i);
+      &:before {
+        border-color: map-deep-get($items-color, $i);
+      }
+    }
+  }
+  @include media('<=tablet') {
+    margin-right: 10px;
+    @for $i from 1 to length($items-color) + 1 {
+      .services__item:nth-child(8n + #{$i}) & {
+        background: map-deep-get($items-color, $i);
+        &:before {
+          border-color: map-deep-get($items-color, $i);
+        }
+      }
+    }
+  }
+  @include media('<=phone') {
+    @include size(55px);
+  }
+  @include media('>tablet') {
+    margin-bottom: 20px;
+  }
   &:before {
     content: '';
     position: absolute;
@@ -51,7 +83,7 @@ $items-color: (
     transform: translate(-50%, -50%) scale(1.3);
     box-sizing: content-box;
     border: 2px solid;
-    transition: all .7s;
+    transition: transform 0.7s;
     opacity: 0;
     border-radius: 50%;
     display: block;
@@ -64,48 +96,58 @@ $items-color: (
 }
 .services__icon{
   @include size(50px);
+  @include media('<=phone') {
+    @include size(25px);
+  }
 }
 .services__title-wrapper{
   margin: 0;
-}
-@include media('>widescreen') {
-  .services-section .owl-carousel {
-    .owl-stage-outer {
-      overflow: visible;
-      &:before, &:after {
-        content: '';
-        display: block;
-        position: absolute;
-        z-index: 2;
-        width: 50vw;
-        height: 100%;
-        top: 0;
-      }
-      &:before {
-        right: 100%;
-        background: linear-gradient(to left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 221px, #fff);
-      }
-      &:after {
-        left: 100%;
-        background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 221px, #fff);
-      }
+  @include media('<=tablet') {
+    text-align: left;
+  }
+  @include media('>desktop') {
+    line-height: 22px;
+  }
+  span{
+    @include media('>tablet') {
+      display: block;
     }
-    .owl-item:not(.active) .services__icon-wrapper,
-    .owl-item.active ~ .owl-item:not(.active) .services__icon-wrapper {
+  }
+}
+
+/*owl-carousel*/
+.services-section .owl-carousel .owl-stage-outer {
+  @include media('>widescreen') {
+    overflow: visible;
+    &:before, &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      z-index: 2;
+      width: 50vw;
+      height: 100%;
+      top: 0;
+    }
+    &:before {
+      right: 100%;
+      background: linear-gradient(to left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 221px, #fff);
+    }
+    &:after {
+      left: 100%;
+      background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 221px, #fff);
+    }
+  }
+}
+.services-section .owl-carousel .owl-item{
+  @include media('>widescreen') {
+    &:not(.active) .services__icon-wrapper,
+    &.active ~ .owl-item:not(.active) .services__icon-wrapper {
       background: #bfbfbf;
     }
   }
-  .services-section .owl-carousel{
-    .owl-nav .owl-prev {
-      left: -60px;
-    }
-    .owl-nav .owl-next {
-      right: -60px;
-    }
-  }
 }
-@include media('<=widescreen', '>tablet') {
-  .services-section .owl-carousel{
+.services-section .owl-carousel {
+  @include media('<=widescreen', '>tablet') {
     .owl-nav .owl-prev {
       left: -8px;
     }
@@ -113,98 +155,62 @@ $items-color: (
       right: -8px;
     }
   }
-}
-@include media('>desktop') {
-  .services__title-wrapper {
-    line-height: 22px;
+  @include media('<=tablet') {
+    display: block;
   }
-}
-@include media('>tablet') {
-  .services-section {
-    padding-bottom: 72px;
-  }
-  .services__item{
-    flex-direction: column;
-  }
-  .services__icon-wrapper{
-    margin-bottom: 20px;
-  }
-  .services__title-wrapper{
-    span{
-      display: block;
-    }
-  }
-  .services-section .owl-carousel {
+  @include media('>tablet') {
     margin-top: 65px;
-    .owl-item:not(.active) .services__item {
-      margin: 0 0 0 -165px;
+  }
+  @include media('>widescreen') {
+    .owl-nav .owl-prev {
+      left: -60px;
     }
-    .owl-item.active ~ .owl-item:not(.active) .services__item {
-      margin: 0 -165px 0 0;
+    .owl-nav .owl-next {
+      right: -60px;
     }
-    .owl-nav {
-      margin: 0;
-      button {
-        position: absolute;
-        top: 62px;
-        border-radius: 0;
-        outline: none;
-        &[class*=owl-] {
-          font-size: 0;
+  }
 
-          &,
-          &:hover {
-            background: url("../images/svg/arrowleft.svg") no-repeat 32%;
-            background-size: 25%;
-          }
+}
+.services-section .owl-carousel .owl-nav {
+  @include media('>tablet') {
+    margin: 0;
+    button {
+      position: absolute;
+      top: 62px;
+      border-radius: 0;
+      outline: none;
+      &[class*=owl-] {
+        font-size: 0;
+        &,
+        &:hover {
+          background: url("../images/svg/arrowleft.svg") no-repeat 32%;
+          background-size: 25%;
         }
-        &.owl-prev {
-          transform: translateY(-50%);
-        }
-        &.owl-next {
-          transform: translateY(-50%) rotate(180deg);
-        }
-        span {
-          @include size(50px);
-          display: block;
-          border-top: 1px solid map-get($base, 'base-border');
-          border-left: 1px solid map-get($base, 'base-border');
-          transform: rotate(-45deg);
-        }
+      }
+      &.owl-prev {
+        transform: translateY(-50%);
+      }
+      &.owl-next {
+        transform: translateY(-50%) rotate(180deg);
+      }
+      span {
+        @include size(50px);
+        display: block;
+        border-top: 1px solid map-get($base, 'base-border');
+        border-left: 1px solid map-get($base, 'base-border');
+        transform: rotate(-45deg);
       }
     }
   }
 }
-@include media('<=tablet') {
-  .services-section {
-    padding-bottom: 36px;
-    .owl-carousel {
-      display: block;
+@include media('>tablet') {
+  .services-section .owl-carousel {
+    .owl-item:not(.active) .services__item {
+      margin: 0 0 0 -165px;
     }
-  }
-  .services__item{
-    padding-bottom: 44px;
-    position: relative;
-    &:not(:last-child):after{
-      display: block;
-      bottom: 24px;
+
+    .owl-item.active ~ .owl-item:not(.active) .services__item {
+      margin: 0 -165px 0 0;
     }
-  }
-}
-@include media('<=tablet', '>phone') {
-  .services__icon-wrapper{
-    margin-right: 20px;
-  }
-  .services__title-wrapper {
-    line-height: 34px;
-    text-align: left;
-  }
-}
-@include media('<=phone') {
-  .services__item{
-    flex-direction: column;
-  }
-  .services__icon-wrapper {
-    margin-bottom: 20px;
   }
 }

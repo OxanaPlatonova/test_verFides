@@ -1,17 +1,44 @@
 .management-section {
-  padding-bottom: 79px;
-  .container{
-    max-width: 950px;
+  text-align: center;
+  @include media('<=phone') {
+    padding: 30px 0 39px;
+  }
+  @include media('>phone') {
+    padding: 68px 0 79px;
   }
 }
 .management__content{
-  text-align: center;
-  padding: 23px 0 40px;
-  @extend %flex-container;
-  img{
-    @include size(180px);
-    border-radius: 50%;
-    object-fit: cover;
+  padding: 23px 0 0;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  @include media('<=desktop') {
+    justify-content: space-around;
+    max-width: 600px;
+    margin: 0 auto;
+    padding-bottom: 0;
+  }
+}
+.management__item{
+  padding: 0 22px 40px;
+  @include media('<=phone') {
+    padding: 0 0 40px;
+    width: 50%;
+  }
+}
+.management__photo{
+  @include size(180px);
+  border-radius: 50%;
+  object-fit: cover;
+  @include media('<=desktop') {
+    margin-bottom: 4px;
+  }
+  @include media('<=phone') {
+    @include size(90px);
+  }
+  @include media('>desktop') {
+    margin-bottom: 18px;
   }
 }
 .management__name, .management__position{
@@ -21,61 +48,37 @@
 }
 .management__contact{
   @extend %listreset;
-  margin-top: 5px;
-  li{
-    display: inline-block;
-    &:nth-child(2){
-      margin: 0 4px 0 8px;
-    }
-  }
-  a{
-    display: inline-block;
-    vertical-align: middle;
-    font-weight: 700;
+  @include media('>phone') {
+    margin-top: 5px;
   }
 }
-@include media('>desktop') {
-  .management__content {
-    img{
-      margin-bottom: 18px;
-    }
-    .icon-in{
-      @include size(18px);
-    }
-    .icon-envelope{
-      @include size(22px, 17px);
-    }
+.management__contact-list{
+  display: inline-block;
+  &:nth-child(2){
+    margin: 0 4px 0 8px;
   }
 }
-@include media('<=desktop') {
-  .management__content {
-    flex-wrap: wrap;
-    max-width: 600px;
-    margin: 0 auto;
-    padding-bottom: 0;
-    & > div{
-      width: 50%;
-      line-height: 30px;
-      margin-bottom: 78px;
-    }
-    .icon-in{
-      @include size(28px);
-    }
-    .icon-envelope{
-      @include size(34px, 26px);
-    }
-    .vcard{
+.management__contact-link{
+  display: inline-block;
+  vertical-align: middle;
+  font-weight: 700;
+}
+.management__content .icon-in {
+  @include size(18px);
+  @include media('<=phone') {
+    @include size(14px);
+  }
+}
+.management__content .icon-envelope {
+  @include size(22px, 17px);
+  @include media('<=phone') {
+    @include size(17px, 15px);
+  }
+}
+.management__content {
+  .vcard {
+    @include media('<=desktop') {
       display: none;
-    }
-    img{
-      margin-bottom: 4px;
-    }
-  }
-}
-@include media('<=600px') {
-  .management__content {
-    & > div {
-      width: 500%;
     }
   }
 }

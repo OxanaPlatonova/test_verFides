@@ -21,9 +21,9 @@ $headings: (
     'border-color': #769eca
   ),
   'sizes-phone': (
-    'h1-font-size': 46px,
-    'h2-font-size': 36px,
-    'h3-font-size': 28px,
+    'h1-font-size': 23px,
+    'h2-font-size': 18px,
+    'h3-font-size': 14px,
   )
 );
 
@@ -35,6 +35,7 @@ $base: (
   'base-background-dark-color': #1a3255,
   'base-border': #a5a5a5,
   'base-link-color': #1a3255,
+  'base-link-color-hover': #769fc7,
   'base-font-size': 14px,
   'base-line-height': 1.2,
   'base-font-family': unquote("'Open Sans', sans-serif"),

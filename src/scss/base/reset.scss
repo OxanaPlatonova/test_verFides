@@ -15,6 +15,10 @@ body {
   background: map-get($base, 'base-background-color');
   font: #{map-get($base, 'base-font-size')}/#{map-get($base, 'base-line-height')} #{map-get($base, 'base-font-family')};
   min-width: map-get($base, base-min-width);
+  @include media('<=phone') {
+    font-size: 12px;
+    line-height: normal;
+  }
 }
 
 // adaptive images

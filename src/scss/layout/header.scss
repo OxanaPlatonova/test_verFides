@@ -1,70 +1,80 @@
-.header{
+.header {
   position: fixed;
-  width: 100vw;
+  width: 100%;
   z-index: $z-index-header;
-  transition: all .2s ease;
-  .logo{
-    display: inline-block;
-    cursor: pointer;
-    span{
-      @include size(213px, 37px);
-      max-width: 100%;
-      display: inline-block;
-      background: url("../images/svg/logowhite.svg") no-repeat 50%;
+  transition: padding-top .2s ease;
+  &.fixed {
+    transition: padding-top .2s ease;
+    box-shadow: 0 3px 7px -3px rgba(0, 0, 0, .1);
+  }
+  @include media('>desktop') {
+    &.fixed {
+      background: #fff;
+    }
+  }
+  @include media('>widescreen') {
+    padding: 28px 30px 10px;
+    &.fixed {
+      padding-top: 10px;
     }
   }
 }
-.header.fixed{
-  transition: all .2s ease;
+.header__logo-wrapper{
+  @include media('<=widescreen') {
+    z-index: $z-index-header;
+    flex: 1;
+  }
+  @include media('<=widescreen', 'portrait', '>phone') {
+    padding: 42px 10px 34px;
+  }
+  @include media('<=desktop') {
+    background: #043355;
+  }
+  @include media('>desktop') {
+    .opened-nav & {
+      background: #fff;
+    }
+  }
+}
+.header__logo {
+  display: inline-block;
+  cursor: pointer;
+  @include media('<=widescreen') {
+    padding: 20px 49px  14px;
+    position: relative;
+  }
+  @include media('<=desktop') {
+    width: 100%;
+    text-align: center;
+  }
+}
+.header__logo-img{
+  @include size(174px, auto);
+  @include media('<=phone') {
+    width: 87px;
+    margin: 0 auto;
+  }
+}
+.header__logo-white{
+  display: block;
+  @include media('>desktop') {
+    .opened-nav &, .fixed & {
+      display: none;
+    }
+  }
+}
+.header__logo-color{
+  display: none;
+  @include media('>desktop') {
+    .opened-nav &, .fixed & {
+      display: block;
+    }
+  }
 }
 .header__container{
   margin: 0 auto;
   @extend %flex-container;
-}
-
-@include media('>widescreen') {
-  .header{
-    padding: 28px 10px 10px;
-    &.fixed{
-      background: #fff;
-      padding-top: 10px;
-      .logo span {
-        background: url("../images/svg/logocolor.svg") no-repeat 50%;
-      }
-    }
-  }
-}
-@include media('<=widescreen', '>desktop') {
-  .fixed, .opened-nav {
-    .header__logo{
-      background: #043355;
-    }
-  }
-}
-@include media('<=widescreen') {
-  .header__container{
+  @include media('<=widescreen') {
     align-items: stretch;
-  }
-  .header__logo{
-    z-index: $z-index-header;
-    width: 62.5%;
-    .logo{
-      padding: 20px 10px;
-      position: relative;
-    }
-  }
-}
-@include media('<=widescreen', 'portrait', '>phone') {
-  .header__logo .logo{
-    padding: 42px 10px 34px;
-  }
-}
-@include media('<=desktop') {
-  .header__logo{
-    background: #043355;
-    .logo{
-      width: 100%;
-      text-align: center;
-    }
   }
 }

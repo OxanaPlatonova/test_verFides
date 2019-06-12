@@ -1,19 +1,13 @@
 .welcome-section{
   border-bottom: 1px solid map-get($base, 'base-border');
-  [class*=__caption]{
-    max-width: 660px;
+  padding: 68px 0 95px;
+  @include media('<=phone') {
+    padding: 31px 0 22px;
   }
-}
-@include media('>desktop') {
-  .welcome-section{
+  @include media('>desktop') {
     margin-bottom: 21px;
   }
-  .welcome__description-mb{
-    display: none;
-  }
 }
-@include media('<=desktop') {
-  .welcome__description-lp{
-    display: none;
-  }
+.welcome__caption{
+  max-width: 660px;
 }

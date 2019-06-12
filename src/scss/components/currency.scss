@@ -1,16 +1,22 @@
 .currency{
   padding-top: 12px;
+  @include media('<=desktop') {
+    display: none;
+  }
 }
 .currency__list-choice{
-  @extend %listreset;
   text-align: center;
   font-weight: bold;
+}
+.currency__items-choice{
+  @extend %listreset;
+  display: inline-block;
   li{
     display: inline-block;
     cursor: pointer;
     color: map-get($base, 'base-text-light-color');
     margin-left: 15px;
-    &.open{
+    &.open, &:hover{
       color: #769eca;
     }
   }
@@ -22,15 +28,14 @@
   white-space: nowrap;
   background: map-deep-get($base, 'base-background-dark-color');
   margin-top: 5px;
+  overflow: hidden;
 }
 .currency__relation{
   padding: 9px 0 10px 17px;
   border-right: 1px solid rgba(255, 255, 255, 0.5);
 }
 .currency__strip{
-  li:first-child{
-    margin-left: 32px;
-  }
+  padding: 9px 0 10px 32px;
 }
 .currency__name{
   margin-right: 5px;
@@ -39,9 +44,4 @@
 .currency__value{
   margin-right: 32px;
   color: #fff;
-}
-@include media('<=desktop') {
-  .currency{
-    display: none;
-  }
 }

@@ -2,7 +2,7 @@
 //
 // You can remove or add your own function in this file.
 
-const OC = {
+const owlCarousel = {
   carousel() {
     if ($('.owl-carousel').length > 0) {
       const owl = $('.owl-carousel');
@@ -40,4 +40,4 @@ const OC = {
   },
 };
 
-export default OC;
+export default owlCarousel;
