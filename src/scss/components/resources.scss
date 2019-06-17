@@ -8,6 +8,7 @@
 }
 .resources__caption{
   max-width: 810px;
+  display: block;
 }
 .article-title{
   margin-bottom: 5px;
@@ -42,8 +43,11 @@
   position: relative;
   &:before{
     @extend %border-element;
-    @include media('<=desktop') {
+    @include media('<=tablet') {
       display: block;
+      top: -18px;
+    }
+    @include media('<=phone') {
       top: -9px;
     }
   }

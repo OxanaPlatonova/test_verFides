@@ -8,6 +8,7 @@
 }
 .contact-info__caption {
   max-width: 810px;
+  display: block;
   @include media('>phone') {
     margin-bottom: 57px;
   }
