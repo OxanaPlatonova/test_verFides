@@ -161,12 +161,6 @@
     src: cfg.folder.build
   });
   /**
-   * Clean video build directory
-   */
-  requireTask(`${cfg.task.videoClean}`, `./${cfg.folder.tasks}/`, {
-    src: cfg.folder.build,
-  });
-  /**
    * Clean fonts build directory
    */
   requireTask(`${cfg.task.fontsClean}`, `./${cfg.folder.tasks}/`, {

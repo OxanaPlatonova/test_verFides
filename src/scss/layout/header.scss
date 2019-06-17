@@ -1,5 +1,6 @@
 .header {
   position: fixed;
+  top: 0;
   width: 100%;
   z-index: $z-index-header;
   transition: padding-top .2s ease;
@@ -23,9 +24,6 @@
   @include media('<=widescreen') {
     z-index: $z-index-header;
     flex: 1;
-  }
-  @include media('<=widescreen', 'portrait', '>phone') {
-    padding: 42px 10px 34px;
   }
   @include media('<=desktop') {
     background: #043355;

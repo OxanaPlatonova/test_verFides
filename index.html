@@ -51,14 +51,10 @@
   </header>
   <section class="entry-section section-default">
     <h2 class="entry__title h1">Wealth structuring, preservation and protection.</h2>
-    <div class="entry__video-wrapper">
-      <iframe id="video" class="entry__iframe"
-              src="https://www.youtube.com/embed/O6CLkUKePm8?rel=0&modestbranding=1&autohide=1&mute=1&controls=0&autoplay=1&playsinline=1&disablekb=1&enablejsapi=1&playlist=O6CLkUKePm8"
-              allowfullscreen></iframe>
-      <div class="entry__video-control">
-        <button id="pause-button" class="pause-button video-button">Pause</button>
-        <button id="play-button" class="play-button video-button">Play</button>
-      </div>
+    <div id="video" class="entry__video-wrapper"></div>
+    <div class="entry__video-control">
+      <button id="pause-button" class="pause-button video-button">Pause</button>
+      <button id="play-button" class="play-button video-button">Play</button>
     </div>
     <img class="entry__img img-mobile" src="assets/images/verfides-shard-mobile.jpg" alt="">
     <a href="#main" class="btn-scroll"><span></span></a>
@@ -442,7 +438,6 @@
     </div>
   </footer>
   <script src="assets/js/vendor.min.js" defer></script>
-  <script src="https://www.youtube.com/iframe_api" defer></script>
   <script src="assets/js/app.js" defer></script>
 </body>
 </html>
