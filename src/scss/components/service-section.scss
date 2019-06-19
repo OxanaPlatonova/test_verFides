@@ -100,6 +100,9 @@ $items-color: (
     @include size(25px);
   }
 }
+.services__icon-key {
+  transform: rotateZ(270deg) rotateY(180deg);
+}
 .services__title-wrapper{
   margin: 0;
   @include media('<=tablet') {

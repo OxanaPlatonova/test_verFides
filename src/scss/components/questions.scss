@@ -1,5 +1,6 @@
 .questions-section {
   padding: 71px 0 100px;
+  font-weight: 700;
   @include media('<=phone') {
     display: none;
   }
@@ -35,4 +36,5 @@
   letter-spacing: 0.5px;
   margin: 0 0 11px 7px;
   display: block;
+  color: rgba(255, 255, 255, 0.5);
 }
